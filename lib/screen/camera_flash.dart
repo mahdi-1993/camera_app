@@ -77,11 +77,11 @@ class _CameraFlashState extends State<CameraFlash> {
               children: [
                 CameraPreview(_controller),
                 Positioned(
-                  left: size.width * .30,
-                  right: size.width * .30,
+                  left: size.width * .25,
+                  right: size.width * .25,
                   top: size.height * .18,
                   child: Container(
-                    height: size.height * .05,
+                    height: size.height * .10,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.blue, width: 2)),
                   ),
