@@ -1,7 +1,6 @@
 import 'package:camera_app/screen/camera_flash.dart';
 import 'package:camera_app/screen/chart.dart';
 import 'package:camera_app/screen/face_id.dart';
-import 'package:camera_app/screen/header.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
@@ -42,15 +41,7 @@ class Menu extends StatelessWidget {
                       ));
                 },
                 child: Text('face id')),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => MegaMenu(),
-                      ));
-                },
-                child: Text('mega')),
+            
           ],
         ),
       ),

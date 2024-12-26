@@ -23,7 +23,7 @@ class Chart extends StatelessWidget {
               aspectRatio: 2,
               child: LineChart(
                 LineChartData(
-                  maxX: 10,
+                  maxX: 6,
                   minX: 1,
                   minY: 0,
                   maxY: 4,
@@ -61,35 +61,24 @@ class Chart extends StatelessWidget {
                         getTitlesWidget: (value, _) {
                           switch (value.toInt()) {
                             case 1:
-                              return const Text('18/Jan',
+                              return const Text('Jan',
                                   style: TextStyle(fontSize: 8));
                             case 2:
-                              return const Text('18/Feb',
+                              return const Text('Feb',
                                   style: TextStyle(fontSize: 8));
                             case 3:
-                              return const Text('18/march',
+                              return const Text('march',
                                   style: TextStyle(fontSize: 8));
                             case 4:
-                              return const Text('18/Apr',
+                              return const Text('Apr',
                                   style: TextStyle(fontSize: 8));
                             case 5:
-                              return const Text('16/Jun',
+                              return const Text('MAY',
                                   style: TextStyle(fontSize: 8));
                             case 6:
-                              return const Text('23/Jun',
+                              return const Text('Jun',
                                   style: TextStyle(fontSize: 8));
-                            case 7:
-                              return const Text('10/Oct',
-                                  style: TextStyle(fontSize: 8));
-                            case 8:
-                              return const Text('10/NOV',
-                                  style: TextStyle(fontSize: 8));
-                            case 9:
-                              return const Text('10/DEC',
-                                  style: TextStyle(fontSize: 8));
-                            case 10:
-                              return const Text('30/DEC',
-                                  style: TextStyle(fontSize: 8));
+
                             default:
                               return const Text('');
                           }
@@ -103,7 +92,12 @@ class Chart extends StatelessWidget {
                     LineChartBarData(
                       spots: [
                         FlSpot(1, 2.5), // Normal
-        
+                        FlSpot(1.8, 2.3), // Normal
+                        FlSpot(2.6, 2.4), // Normal
+                        FlSpot(3.5, 2.7), // Normal
+                        FlSpot(4.5, 3.5), // Normal
+                        FlSpot(5.5, 3.5), // Normal
+                        FlSpot(6, 2.7), // Normal
                       ],
                       isCurved: true,
                       color: Colors.blue,
@@ -111,53 +105,115 @@ class Chart extends StatelessWidget {
                       dotData: FlDotData(show: true),
                       belowBarData: BarAreaData(show: false),
                     ),
+                  ],
+                ),
+              ),
+            ),
+            AspectRatio(
+              aspectRatio: 2,
+              child: LineChart(
+                LineChartData(
+                  maxX: 6,
+                  minX: 1,
+                  minY: 0,
+                  maxY: 4,
+                  gridData: FlGridData(show: true),
+                  titlesData: FlTitlesData(
+                    leftTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        reservedSize: 50,
+                        interval: 1,
+                        getTitlesWidget: (value, _) {
+                          switch (value.toInt()) {
+                            case 4:
+                              return const Text('Sharp',
+                                  style: TextStyle(fontSize: 12));
+                            case 3:
+                              return const Text('Perfect',
+                                  style: TextStyle(fontSize: 12));
+                            case 2:
+                              return const Text('Acceptable',
+                                  style: TextStyle(fontSize: 12));
+                            case 1:
+                              return const Text('need attention',
+                                  style: TextStyle(fontSize: 12));
+                            default:
+                              return const Text('');
+                          }
+                        },
+                      ),
+                    ),
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        interval: 1,
+                        getTitlesWidget: (value, _) {
+                          switch (value.toInt()) {
+                            case 1:
+                              return const Text('Jan',
+                                  style: TextStyle(fontSize: 8));
+                            case 2:
+                              return const Text('Feb',
+                                  style: TextStyle(fontSize: 8));
+                            case 3:
+                              return const Text('march',
+                                  style: TextStyle(fontSize: 8));
+                            case 4:
+                              return const Text('Apr',
+                                  style: TextStyle(fontSize: 8));
+                            case 5:
+                              return const Text('MAY',
+                                  style: TextStyle(fontSize: 8));
+                            case 6:
+                              return const Text('Jun',
+                                  style: TextStyle(fontSize: 8));
+
+                            default:
+                              return const Text('');
+                          }
+                        },
+                      ),
+                    ),
+                  ),
+                  borderData: FlBorderData(show: false),
+                  lineBarsData: [
+                    // Blue Line
                     LineChartBarData(
                       spots: [
-                        FlSpot(2, 2), // Normal
+                        FlSpot(1, 2.5), // Normal
+                        FlSpot(1.8, 2.3), // Normal
+                        FlSpot(2.6, 2.4), // Normal
+                        FlSpot(3.5, 2.7), // Normal
+                        FlSpot(4.5, 3.5), // Normal
+                        FlSpot(5.5, 3.5), // Normal
+                        FlSpot(6, 2.7), // Normal
                       ],
-                      isCurved: true,
-                      color: Colors.pink,
-                      barWidth: 4,
+                      isCurved: false,
+                      color: Colors.blue,
                       dotData: FlDotData(show: true),
-                      belowBarData: BarAreaData(show: false),
-                    ),
-                    // Pink Line
-                    LineChartBarData(
-                      spots: [
-                        FlSpot(5, 2), // Mild
-                        FlSpot(6, 1.7),
-                        FlSpot(7, 1),
-                        FlSpot(8, 2),
-                        FlSpot(9, 0.5),
-                        FlSpot(10, 1.3),
-                      ],
-                      isCurved: true,
-                      color: Colors.pink,
-                      barWidth: 4,
-                      dotData: FlDotData(show: false),
+                      isStrokeCapRound: false,
+                      barWidth: 0, // Set barWidth to 0 to hide the line
                       belowBarData: BarAreaData(show: false),
                     ),
                     LineChartBarData(
                       spots: [
-                        FlSpot(7, 1.5), // Mild
-                        FlSpot(8, 3),
-                        FlSpot(10, 2),
+                        FlSpot(1.3, 1.1), // Normal
+                        FlSpot(2.1, 3), // Normal
                       ],
-                      isCurved: true,
-                      color: Colors.blue,
-                      barWidth: 4,
-                      dotData: FlDotData(show: false),
-                      belowBarData: BarAreaData(show: false),
-                    ),
-                    LineChartBarData(
-                      spots: [
-                        FlSpot(3, 1.1), // Mild
-                        FlSpot(4, 0.8),
-                      ],
-                      isCurved: true,
-                      color: Colors.blue,
-                      barWidth: 4,
-                      dotData: FlDotData(show: false),
+                      isCurved: false,
+                      color: Colors.red,
+                      dotData: FlDotData(
+                        show: true,
+                        getDotPainter: (spot, percent, barData, index) =>
+                            FlDotCrossPainter(
+                          size: 8,
+                          color: Colors.red,
+                          width: 2,
+                        ),
+                      ),
+                      isStrokeCapRound: false,
+                      barWidth: 0, // Set barWidth to 0 to hide the line
                       belowBarData: BarAreaData(show: false),
                     ),
                   ],
